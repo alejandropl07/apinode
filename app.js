@@ -3,6 +3,13 @@ import express from 'express';
 const app   =   express();
 const port  =   5500;
 
+app.use(express.json({limit:"50mb"}))
+
+app.post("/api/clients",    (req,res)   =>  {
+    console.log("dummy EndPoint");
+    res.send("You have posted something")
+})
+
 app.get("/" ,   (req,res)  =>  {
     res.send("Hello world");
 });
