@@ -38,9 +38,16 @@ app.delete("/api/clients",    (req,res)   =>  {
     })
 })
 
-app.get("/" ,   (req,res)  =>  {
-    res.send("Hello world")
-});
+app.get("/api/clients" ,   (req,res)  =>  {
+    store.find({},  (err, docs)  =>  {
+        if(err){
+            res.status(500).send(err)
+        }
+        else{
+            res.status(200).send(docs)
+        }
+    })
+})
 
 app.listen(port, () =>  {
     console.log(`Server is listening at http//localhost:${port}`)
