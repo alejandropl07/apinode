@@ -31,6 +31,13 @@ app.post("/api/clients",    (req,res)   =>  {
     } )
 })
 
+
+app.delete("/api/clients",    (req,res)   =>  {
+    store.deleteMany({},    (err)  => {
+        res.status(500).send(err)
+    })
+})
+
 app.get("/" ,   (req,res)  =>  {
     res.send("Hello world")
 });
